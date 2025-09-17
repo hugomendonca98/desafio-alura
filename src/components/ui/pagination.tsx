@@ -61,8 +61,10 @@ function PaginationLink({
         }),
         'text-white py-2 px-3 rounded-[4px]',
         {
-          'bg-secondary hover:bg-secondary/80 hover:text-white': isActive,
-          'bg-description hover:bg-description/80 hover:text-white': !isActive,
+          'bg-secondary dark:bg-primary dark:text-black hover:bg-secondary/80 dark:hover:bg-primary/80 hover:text-white':
+            isActive,
+          'bg-description dark:bg-gray-300 dark:text-black hover:bg-description/80 dark:hover:bg-gray-300/80 hover:text-white':
+            !isActive,
         },
         className,
       )}

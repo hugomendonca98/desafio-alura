@@ -3,7 +3,7 @@ import React from 'react'
 export function BlogCategoryList() {
   return (
     <div className="flex flex-col sm:flex-row gap-2 sm:gap-4 items-start sm:items-center">
-      <span className="font-inter font-bold text-secondary text-base text-nowrap">
+      <span className="font-inter font-bold text-secondary dark:text-white text-base text-nowrap">
         Categorias:
       </span>
       <div className="flex flex-wrap md:flex-nowrap gap-2">

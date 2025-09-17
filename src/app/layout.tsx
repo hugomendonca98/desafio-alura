@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Chakra_Petch as ChakraPetch, Inter } from 'next/font/google'
 import './globals.css'
+import { ThemeProvider } from '@/providers/theme-provider'
 
 const chakraPetch = ChakraPetch({
   variable: '--font-chakra-petch',
@@ -26,7 +27,14 @@ export default function RootLayout({
   return (
     <html lang="pt-BR">
       <body className={`${chakraPetch.variable} ${inter.variable} antialiased`}>
-        {children}
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   )
