@@ -10,7 +10,11 @@ const compat = new FlatCompat({
 })
 
 const eslintConfig = [
-  ...compat.extends('@rocketseat/eslint-config/next', 'next/core-web-vitals'),
+  ...compat.extends(
+    '@rocketseat/eslint-config/next',
+    'next/core-web-vitals',
+    'plugin:@tanstack/eslint-plugin-query/recommended',
+  ),
   {
     ignores: [
       'node_modules/**',
