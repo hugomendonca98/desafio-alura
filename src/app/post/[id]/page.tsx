@@ -27,14 +27,14 @@ export default async function PostPage({
         <BackgroundGradientGrow className="max-h-[500px] md:max-h-none" />
       </div>
       <SinglePostHeader post={post} />
-      <div className="relative z-20 py-12 sm:py-20 container max-w-[1191px] mx-auto">
+      <div className="relative z-20 py-12 px-6 xl:px-0 sm:py-20 container max-w-[1191px] mx-auto">
         <p className="text-muted-foreground text-sm sm:text-base leading-6">
           {post.content}
         </p>
         <h2 className="font-chakra-petch font-bold text-secondary dark:text-white text-2xl sm:text-3xl leading-8 my-10">
           Postagens relacionadas
         </h2>
-        <div className="flex justify-center flex-wrap xl:flex-nowrap gap-4 items-center">
+        <div className="flex justify-center  lg:justify-start flex-wrap xl:flex-nowrap gap-4 items-center">
           {relatedPosts.posts.map((post) => (
             <BlogPostItem key={post.id} post={post} />
           ))}
