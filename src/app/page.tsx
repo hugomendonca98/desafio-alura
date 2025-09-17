@@ -16,14 +16,14 @@ import {
 
 export default function Home() {
   return (
-    <div className="bg-white min-h-screen">
+    <div className="bg-background min-h-screen">
       <BackgroundGradientGrow />
       <Header />
       <HeroSection />
       <Divider />
 
       {/* Blog Section */}
-      <section className="relative px-4 sm:px-8 lg:px-32 py-8">
+      <section id="blog" className="relative px-4 sm:px-8 lg:px-32 py-8">
         <div className="flex flex-col lg:flex-row gap-4 md:gap-8 items-start md:justify-between md:items-center mb-8">
           <SearchPost />
           <BlogCategoryList />
