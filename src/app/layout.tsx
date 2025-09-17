@@ -1,4 +1,4 @@
-import type { Metadata, Viewport } from 'next'
+import type { Metadata } from 'next'
 import { Chakra_Petch as ChakraPetch, Inter } from 'next/font/google'
 import './globals.css'
 import { ThemeProvider } from '@/providers/theme-provider'
@@ -18,14 +18,6 @@ const inter = Inter({
   variable: '--font-inter',
   subsets: ['latin'],
 })
-
-export const viewport: Viewport = {
-  themeColor: '#ffffff',
-  colorScheme: 'light',
-  initialScale: 1,
-  maximumScale: 1,
-  viewportFit: 'cover',
-}
 
 export const metadata: Metadata = {
   title: {
