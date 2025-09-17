@@ -13,7 +13,7 @@ type SinglePostHeaderProps = {
 export function SinglePostHeader({ post }: SinglePostHeaderProps) {
   const router = useRouter()
   return (
-    <div className="relative z-20 flex flex-col xl:flex-row gap-6 items-center mt-20 h-full container max-w-[1191px] mx-auto px-6 xl:px-0">
+    <div className="relative flex flex-col xl:flex-row gap-6 items-center mt-20 h-full container max-w-[1191px] mx-auto px-6 xl:px-0">
       <div className="flex flex-col justify-between">
         <h1 className="font-chakra-petch font-bold text-secondary dark:text-white text-3xl sm:text-4xl lg:text-[48px] xl:leading-12">
           {post.title}

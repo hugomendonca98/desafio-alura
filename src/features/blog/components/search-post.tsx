@@ -7,7 +7,7 @@ import { usePostListQueryParams } from '../hooks/usePostListQueryParams'
 import { useDebouncedCallback } from 'use-debounce'
 
 export function SearchPost() {
-  const { search, setSearch } = usePostListQueryParams()
+  const { search, setSearch, setPage } = usePostListQueryParams()
   const [inputValue, setInputValue] = useState(search)
 
   const handleSearchDebounced = useDebouncedCallback(setSearch, 500)
@@ -18,6 +18,7 @@ export function SearchPost() {
 
   const handleInputChange = (value: string) => {
     setInputValue(value)
+    setPage(1)
     handleSearchDebounced(value)
   }
 
@@ -32,7 +33,7 @@ export function SearchPost() {
 
       <Input
         id="search-input"
-        className="border border-primary min-w-[320px] w-full md:w-auto bg-background"
+        className="border border-primary min-w-[300px] w-full md:w-auto bg-background"
         placeholder="Buscar..."
         icon={<SearchIcon />}
         value={inputValue}

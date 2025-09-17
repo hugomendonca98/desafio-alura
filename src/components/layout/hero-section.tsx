@@ -26,12 +26,12 @@ export function HeroSection() {
       </p>
       <div className="flex flex-col gap-6 sm:gap-10 items-center">
         <div className="flex flex-col gap-4 sm:gap-6 items-center text-center">
-          <h2 className="font-chakra-petch font-bold text-secondary dark:text-white text-3xl sm:text-4xl lg:text-[60px] leading-none">
+          <h1 className="font-chakra-petch font-bold text-secondary dark:text-white text-3xl sm:text-4xl lg:text-[60px] leading-none">
             Eu ensino{' '}
             <span className="bg-gradient-to-r from-[#8c61d5] from-[40.481%] to-primary to-[100%] bg-clip-text text-transparent">
               Programação
             </span>
-          </h2>
+          </h1>
           <p className="font-inter text-muted-foreground text-sm sm:text-base max-w-[581px] leading-6 px-4">
             Sou Engenheira de Computação e Pedagoga. Ensino pensamento
             computacional para estudantes do Ensino Fundamental e Médio. Ensino

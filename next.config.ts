@@ -5,6 +5,7 @@ const nextConfig: NextConfig = {
     useLightningcss: true,
   },
   images: {
+    qualities: [25, 50, 75],
     remotePatterns: [
       {
         protocol: 'https',

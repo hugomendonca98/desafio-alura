@@ -27,6 +27,7 @@ export function Footer() {
               <MailIcon className="size-6 text-primary" />
               <a
                 href="mailto:fernandamascheti@gmail.com"
+                aria-label="Email"
                 className="font-inter text-muted-foreground text-sm sm:text-base hover:underline"
               >
                 fernandamascheti@gmail.com
@@ -35,8 +36,11 @@ export function Footer() {
             <div className="flex gap-2 items-center">
               <LinkedinIcon className="size-6 text-primary" />
               <a
-                href="#"
+                href="https://www.linkedin.com/in/hugo-mendon%C3%A7a-dev"
+                aria-label="LinkedIn"
                 className="font-inter text-muted-foreground text-sm sm:text-base underline hover:no-underline"
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 /Fernanda Mascheti
               </a>
@@ -44,8 +48,11 @@ export function Footer() {
             <div className="flex gap-2 items-center">
               <GithubIcon className="size-6 text-primary" />
               <a
-                href="#"
+                href="https://github.com/hugomendonca98"
+                aria-label="GitHub"
                 className="font-inter text-muted-foreground text-sm sm:text-base underline hover:no-underline"
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 /fernandamascheti
               </a>
@@ -61,7 +68,8 @@ export function Footer() {
         )}
       >
         <p className="font-inter text-muted-foreground text-sm sm:text-base text-center">
-          © Copyright 2025. Produzido por Fernanda Mascheti
+          © Copyright {new Date().getFullYear()}. Produzido por Fernanda
+          Mascheti
         </p>
       </div>
     </footer>

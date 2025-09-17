@@ -28,9 +28,9 @@ export async function fetchPosts({
 
   const postsResponse = await api(definyEndpoint())
 
-  if (!postsResponse.ok) {
+  if (!postsResponse.ok && postsResponse.status !== 404) {
     throw new Error('Erro ao carregar posts')
   }
 
-  return postsResponse.json()
+  return postsResponse?.json()
 }

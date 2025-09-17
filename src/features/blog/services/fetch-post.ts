@@ -12,9 +12,9 @@ export async function fetchPost({
 }: FetchPostsParams): Promise<FetchPostResponse> {
   const postResponse = await api(`/posts/id/${id}`)
 
-  if (!postResponse.ok) {
+  if (!postResponse.ok && postResponse.status !== 404) {
     throw new Error('Erro ao carregar post')
   }
 
-  return postResponse.json()
+  return postResponse?.json()
 }

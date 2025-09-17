@@ -39,7 +39,7 @@ const categories = [
 ]
 
 export function BlogCategoryList() {
-  const { setCategory, category } = usePostListQueryParams()
+  const { setCategory, category, setPage } = usePostListQueryParams()
   const [emblaRef, emblaApi] = useEmblaCarousel({
     align: 'start',
     containScroll: 'trimSnaps',
@@ -71,13 +71,14 @@ export function BlogCategoryList() {
 
   const handleCategoryClick = useCallback(
     (slug: string) => {
+      setPage(1)
       if (isSelected(slug)) {
         setCategory('')
       } else {
         setCategory(slug)
       }
     },
-    [isSelected, setCategory],
+    [isSelected, setCategory, setPage],
   )
 
   useEffect(() => {

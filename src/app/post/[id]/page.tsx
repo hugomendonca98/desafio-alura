@@ -6,6 +6,7 @@ import { BlogPostItem } from '@/features/blog/components/blog-post-item'
 import imgGradient from '@/../public/images/bg-grandient-bottom.webp'
 import { BackgroundGradientGrow } from '@/components/layout/background-gradient-grow'
 import { SinglePostHeader } from '@/features/blog/components/single-post-header'
+import { notFound } from 'next/navigation'
 
 export default async function PostPage({
   params,
@@ -14,6 +15,11 @@ export default async function PostPage({
 }) {
   const { id } = await params
   const { post } = await fetchPost({ id })
+
+  if (!post) {
+    return notFound()
+  }
+
   const relatedPosts = await fetchPosts({
     page: 1,
     perPage: 3,
@@ -35,7 +41,7 @@ export default async function PostPage({
           Postagens relacionadas
         </h2>
         <div className="flex justify-center  lg:justify-start flex-wrap xl:flex-nowrap gap-4 items-center">
-          {relatedPosts.posts.map((post) => (
+          {relatedPosts?.posts?.map((post) => (
             <BlogPostItem key={post.id} post={post} />
           ))}
         </div>
