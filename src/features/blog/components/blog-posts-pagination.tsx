@@ -41,7 +41,14 @@ export function BlogPostsPagination() {
               <PaginationLink
                 href="#"
                 isActive={page === pageNumber}
-                onClick={() => setPage(Number(pageNumber))}
+                onClick={() => {
+                  setPage(Number(pageNumber))
+
+                  const blogSection = document.getElementById('blog')
+                  if (blogSection) {
+                    blogSection.scrollIntoView({ behavior: 'smooth' })
+                  }
+                }}
               >
                 {pageNumber}
               </PaginationLink>

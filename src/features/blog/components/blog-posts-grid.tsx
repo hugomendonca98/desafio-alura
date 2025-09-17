@@ -25,6 +25,21 @@ export function BlogPostsGrid() {
     )
   }
 
+  if (data?.posts.length === 0 || !data?.posts) {
+    return (
+      <main className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="col-span-full text-center">
+          <h2 className="font-chakra-petch font-bold text-secondary dark:text-white text-2xl sm:text-3xl">
+            Nenhum post encontrado
+          </h2>
+          <p className="font-inter text-muted-foreground text-sm sm:text-base">
+            Nenhum post encontrado com os filtros aplicados.
+          </p>
+        </div>
+      </main>
+    )
+  }
+
   return (
     <main className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       {data?.posts.map((post) => (
