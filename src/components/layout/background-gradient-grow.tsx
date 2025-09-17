@@ -25,6 +25,9 @@ export function BackgroundGradientGrow({
           width={1355}
           height={1173}
           property="true"
+          fetchPriority="high"
+          loading="lazy"
+          quality={50}
         />
       </div>
     </div>

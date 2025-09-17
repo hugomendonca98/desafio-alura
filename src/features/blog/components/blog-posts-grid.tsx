@@ -52,7 +52,6 @@ export function BlogPostsGrid() {
     <main
       className="flex flex-wrap gap-6 justify-center mx-auto container"
       aria-label="Lista de postagens"
-      role="feed"
     >
       {data?.posts.map((post) => (
         <BlogPostItem key={post.id} post={post} />

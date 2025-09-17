@@ -16,6 +16,9 @@ export function HeroSection() {
           width={224}
           height={224}
           property="true"
+          fetchPriority="high"
+          loading="lazy"
+          quality={50}
         />
       </div>
       <p className="font-chakra-petch font-bold text-primary text-sm sm:text-base text-center max-w-[230px]">
