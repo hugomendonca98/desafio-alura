@@ -2,6 +2,8 @@ import type { Metadata } from 'next'
 import { Chakra_Petch as ChakraPetch, Inter } from 'next/font/google'
 import './globals.css'
 import { ThemeProvider } from '@/providers/theme-provider'
+import { ReactQueryProvider } from '@/providers/react-query-provider'
+import { NuqsAdapter } from 'nuqs/adapters/next/app'
 
 const chakraPetch = ChakraPetch({
   variable: '--font-chakra-petch',
@@ -33,7 +35,9 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          {children}
+          <ReactQueryProvider>
+            <NuqsAdapter>{children}</NuqsAdapter>
+          </ReactQueryProvider>
         </ThemeProvider>
       </body>
     </html>
