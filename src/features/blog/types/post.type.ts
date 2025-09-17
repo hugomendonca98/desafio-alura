@@ -37,3 +37,11 @@ export type FetchPostsResponse = {
     category: string
   }
 }
+
+export type FetchPostResponse = {
+  post: Post
+  meta: {
+    generatedAt: string
+    seed: string
+  }
+}

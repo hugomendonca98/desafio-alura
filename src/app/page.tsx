@@ -1,16 +1,14 @@
-import { Header } from '@/components/layout/header'
 import { Divider } from '@/components/layout/divider'
 import { HeroSection } from '@/components/layout/hero-section'
-import { BackgroundGradientGrow } from '@/components/layout/background-gradient-grow'
 import { SearchPost } from '@/features/blog/components/search-post'
 import { BlogCategoryList } from '@/features/blog/components/blog-category-list'
-import { Footer } from '@/components/layout/footer'
 
 import { dehydrate, HydrationBoundary } from '@tanstack/react-query'
 import { queryClient } from '@/lib/query-client'
 import { fetchPosts } from '@/features/blog/services/fetch-posts'
 import { BlogPostsGrid } from '@/features/blog/components/blog-posts-grid'
 import { BlogPostsPagination } from '@/features/blog/components/blog-posts-pagination'
+import { BackgroundGradientGrow } from '@/components/layout/background-gradient-grow'
 
 type SearchParams = Promise<{ [key: string]: string | string[] | undefined }>
 
@@ -34,25 +32,25 @@ export default async function Home({
 
   return (
     <HydrationBoundary state={dehydratedState}>
-      <div className="bg-background min-h-screen">
-        <BackgroundGradientGrow />
-        <Header />
-        <HeroSection />
-        <Divider />
-
-        <section id="blog" className="relative px-4 sm:px-8 lg:px-32 py-8">
-          <div className="flex flex-col xl:flex-row gap-4 md:gap-8 items-start md:justify-between md:items-center mb-8">
-            <SearchPost />
-            <BlogCategoryList />
-          </div>
-
-          <BlogPostsGrid />
-
-          <BlogPostsPagination />
-        </section>
-
-        <Footer />
+      <div className="absolute inset-0 top-0">
+        <BackgroundGradientGrow className="max-h-[600px] md:max-h-none z-0" />
       </div>
+      <HeroSection />
+      <Divider />
+
+      <section
+        id="blog"
+        className="relative w-full container max-w-[1191px] mx-auto py-10"
+      >
+        <div className="px-8 md:px-0 flex flex-col xl:flex-row gap-4 md:gap-8 items-start md:justify-between md:items-center mb-8">
+          <SearchPost />
+          <BlogCategoryList />
+        </div>
+
+        <BlogPostsGrid />
+
+        <BlogPostsPagination />
+      </section>
     </HydrationBoundary>
   )
 }

@@ -3,7 +3,7 @@ import { Skeleton } from '@/components/ui/skeleton'
 
 export function BlogPostSkeleton() {
   return (
-    <article className="bg-card border border-border rounded p-4 sm:p-6 flex flex-col gap-4 sm:gap-6">
+    <article className="bg-card border border-border rounded p-4 sm:p-6 flex flex-col gap-4 sm:gap-6 w-[300px] sm:w-[381px] md:h-[458px]">
       <div className="relative">
         <Skeleton className="h-32 sm:h-[196px] w-full rounded" />
         <div className="absolute bottom-2 sm:bottom-4 right-2 sm:right-4">

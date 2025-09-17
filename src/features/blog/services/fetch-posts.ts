@@ -6,15 +6,15 @@ import { FetchPostsResponse } from '../types/post.type'
 type FetchPostsParams = {
   page: number
   perPage?: number
-  search: string
-  category: string
+  search?: string
+  category?: string
 }
 
 export async function fetchPosts({
   page,
   perPage = 6,
-  search,
-  category,
+  search = '',
+  category = '',
 }: FetchPostsParams): Promise<FetchPostsResponse> {
   const definyEndpoint = () => {
     if (search) {

@@ -4,6 +4,8 @@ import './globals.css'
 import { ThemeProvider } from '@/providers/theme-provider'
 import { ReactQueryProvider } from '@/providers/react-query-provider'
 import { NuqsAdapter } from 'nuqs/adapters/next/app'
+import { Header } from '@/components/layout/header'
+import { Footer } from '@/components/layout/footer'
 
 const chakraPetch = ChakraPetch({
   variable: '--font-chakra-petch',
@@ -35,9 +37,13 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <ReactQueryProvider>
-            <NuqsAdapter>{children}</NuqsAdapter>
-          </ReactQueryProvider>
+          <div className="bg-background min-h-screen relative">
+            <Header />
+            <ReactQueryProvider>
+              <NuqsAdapter>{children}</NuqsAdapter>
+            </ReactQueryProvider>
+            <Footer />
+          </div>
         </ThemeProvider>
       </body>
     </html>
