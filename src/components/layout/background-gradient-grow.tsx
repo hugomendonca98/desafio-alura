@@ -1,10 +1,22 @@
 import React from 'react'
 import Image from 'next/image'
 import imgGradient from '@/../public/images/hero-gradient.png'
+import { cn } from '@/lib/utils'
 
-export function BackgroundGradientGrow() {
+interface BackgroundGradientGrowProps {
+  className?: string
+}
+
+export function BackgroundGradientGrow({
+  className,
+}: BackgroundGradientGrowProps) {
   return (
-    <div className="absolute inset-0 pointer-events-none top-0 left-0">
+    <div
+      className={cn(
+        'absolute inset-0 pointer-events-none top-0 left-0',
+        className,
+      )}
+    >
       <div className="absolute -top-10 md:-top-20 left-0 w-full h-full">
         <Image
           alt="Background Gradient Grow"

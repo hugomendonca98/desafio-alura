@@ -6,7 +6,7 @@ export function HeroSection() {
   return (
     <section
       id="home"
-      className="relative px-4 sm:px-8 lg:px-32 py-12 sm:py-20 flex flex-col gap-6 items-center"
+      className="relative z-10 px-4 sm:px-8 lg:px-32 py-12 sm:py-20 flex flex-col gap-6 items-center"
     >
       <div className="size-32 sm:size-48 lg:size-[224px]">
         <Image

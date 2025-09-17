@@ -17,7 +17,11 @@ export function BlogPostsGrid() {
 
   if (isLoading) {
     return (
-      <main className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <main
+        className="flex flex-wrap gap-6 justify-center mx-auto container"
+        aria-busy="true"
+        aria-label="Carregando posts"
+      >
         {Array.from({ length: 6 }).map((_, index) => (
           <BlogPostSkeleton key={index} />
         ))}
@@ -27,13 +31,17 @@ export function BlogPostsGrid() {
 
   if (data?.posts.length === 0 || !data?.posts) {
     return (
-      <main className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <main
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 place-items-center"
+        role="alert"
+        aria-label="Nenhum postagem encontrada"
+      >
         <div className="col-span-full text-center">
           <h2 className="font-chakra-petch font-bold text-secondary dark:text-white text-2xl sm:text-3xl">
-            Nenhum post encontrado
+            Nenhuma postagem encontrada
           </h2>
           <p className="font-inter text-muted-foreground text-sm sm:text-base">
-            Nenhum post encontrado com os filtros aplicados.
+            Nenhuma postagem encontrada com os filtros aplicados.
           </p>
         </div>
       </main>
@@ -41,7 +49,11 @@ export function BlogPostsGrid() {
   }
 
   return (
-    <main className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <main
+      className="flex flex-wrap gap-6 justify-center mx-auto container"
+      aria-label="Lista de postagens"
+      role="feed"
+    >
       {data?.posts.map((post) => (
         <BlogPostItem key={post.id} post={post} />
       ))}
