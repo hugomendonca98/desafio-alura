@@ -1,6 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
-import squareEffect from '@/../public/images/squere-effect.png'
+import squareEffect from '@/../public/images/squere-effect.webp'
 
 export function Divider() {
   return (

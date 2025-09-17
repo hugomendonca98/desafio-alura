@@ -26,9 +26,7 @@ export async function fetchPosts({
     return `/posts?page=${page}&limit=${perPage}`
   }
 
-  const postsResponse = await api(definyEndpoint(), {
-    cache: 'no-store',
-  })
+  const postsResponse = await api(definyEndpoint())
 
   if (!postsResponse.ok) {
     throw new Error('Erro ao carregar posts')

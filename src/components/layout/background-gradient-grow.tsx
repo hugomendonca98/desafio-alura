@@ -1,6 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
-import imgGradient from '@/../public/images/hero-gradient.png'
+import imgGradient from '@/../public/images/hero-gradient.webp'
 import { cn } from '@/lib/utils'
 
 interface BackgroundGradientGrowProps {

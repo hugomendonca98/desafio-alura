@@ -10,9 +10,7 @@ type FetchPostsParams = {
 export async function fetchPost({
   id,
 }: FetchPostsParams): Promise<FetchPostResponse> {
-  const postResponse = await api(`/posts/id/${id}`, {
-    cache: 'no-store',
-  })
+  const postResponse = await api(`/posts/id/${id}`)
 
   if (!postResponse.ok) {
     throw new Error('Erro ao carregar post')

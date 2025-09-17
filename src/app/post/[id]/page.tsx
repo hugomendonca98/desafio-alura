@@ -3,7 +3,7 @@ import { fetchPosts } from '@/features/blog/services/fetch-posts'
 import React from 'react'
 import Image from 'next/image'
 import { BlogPostItem } from '@/features/blog/components/blog-post-item'
-import imgGradient from '@/../public/images/bg-grandient-bottom.png'
+import imgGradient from '@/../public/images/bg-grandient-bottom.webp'
 import { BackgroundGradientGrow } from '@/components/layout/background-gradient-grow'
 import { SinglePostHeader } from '@/features/blog/components/single-post-header'
 

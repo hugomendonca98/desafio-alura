@@ -1,6 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
-import profileImage from '@/../public/images/profile.png'
+import profileImage from '@/../public/images/profile.webp'
 
 export function HeroSection() {
   return (
