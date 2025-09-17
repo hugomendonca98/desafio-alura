@@ -115,13 +115,56 @@ function PaginationEllipsis({
     <span
       aria-hidden
       data-slot="pagination-ellipsis"
-      className={cn('flex size-9 items-center justify-center', className)}
+      className={cn(
+        'flex size-9 items-center justify-center text-secondary dark:text-white',
+        className,
+      )}
       {...props}
     >
       <MoreHorizontalIcon className="size-4" />
       <span className="sr-only">More pages</span>
     </span>
   )
+}
+
+// Função para gerar os números das páginas a serem exibidas
+const getVisiblePages = (totalPages: number, currentPage: number) => {
+  const delta = 2 // Número de páginas antes e depois da atual
+  const pages: (number | 'ellipsis')[] = []
+
+  if (totalPages <= 5) {
+    // Se há poucas páginas, mostra todas
+    return Array.from({ length: totalPages }, (_, i) => i + 1)
+  }
+
+  // Sempre adiciona a primeira página
+  pages.push(1)
+
+  // Calcula o range ao redor da página atual
+  const startPage = Math.max(2, currentPage - delta)
+  const endPage = Math.min(totalPages - 1, currentPage + delta)
+
+  // Adiciona elipse antes se necessário
+  if (startPage > 2) {
+    pages.push('ellipsis')
+  }
+
+  // Adiciona páginas ao redor da atual
+  for (let i = startPage; i <= endPage; i++) {
+    pages.push(i)
+  }
+
+  // Adiciona elipse depois se necessário
+  if (endPage < totalPages - 1) {
+    pages.push('ellipsis')
+  }
+
+  // Sempre adiciona a última página (se não for a primeira)
+  if (totalPages > 1) {
+    pages.push(totalPages)
+  }
+
+  return pages
 }
 
 export {
@@ -132,4 +175,5 @@ export {
   PaginationPrevious,
   PaginationNext,
   PaginationEllipsis,
+  getVisiblePages,
 }
