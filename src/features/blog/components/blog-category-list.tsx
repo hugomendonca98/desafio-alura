@@ -123,7 +123,7 @@ export function BlogCategoryList() {
                     'text-white px-3 py-2 rounded font-bold text-sm sm:text-base hover:opacity-90 transition-opacity text-nowrap select-none',
                     {
                       'text-white': !isSelected(category.slug),
-                      'text-secondary': isSelected(category.slug),
+                      'text-primary': isSelected(category.slug),
                     },
                   )}
                   onClick={() => handleCategoryClick(category.slug)}
