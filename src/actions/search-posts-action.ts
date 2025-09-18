@@ -36,7 +36,9 @@ export async function searchPostsAction({
       post.content.toLowerCase().includes(searchTerm) ||
       post.author.toLowerCase().includes(searchTerm) ||
       post.category.name.toLowerCase().includes(searchTerm) ||
-      post.tags.some((tag) => tag.name.toLowerCase().includes(searchTerm))
+      post.tags.some((tag) => tag.name.toLowerCase().includes(searchTerm)) ||
+      post.category.slug.toLowerCase().includes(searchTerm) ||
+      post.tags.some((tag) => tag.slug.toLowerCase().includes(searchTerm))
     )
   })
 
