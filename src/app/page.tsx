@@ -9,6 +9,13 @@ import { fetchPosts } from '@/features/blog/services/fetch-posts'
 import { BlogPostsGrid } from '@/features/blog/components/blog-posts-grid'
 import { BlogPostsPagination } from '@/features/blog/components/blog-posts-pagination'
 import { BackgroundGradientGrow } from '@/components/layout/background-gradient-grow'
+import { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Fernanda Mascheti - Desafio Alura',
+  description:
+    'Fernanda Mascheti é uma engenheira de computação e pedagoga. Ensino pensamento computacional para estudantes do Ensino Fundamental e Médio. Ensino sobre pensamento computacional usando HTML, CSS e JavaScript.',
+}
 
 type SearchParams = Promise<{ [key: string]: string | string[] | undefined }>
 

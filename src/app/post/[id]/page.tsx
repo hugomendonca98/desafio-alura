@@ -7,6 +7,13 @@ import imgGradient from '@/../public/images/bg-grandient-bottom.webp'
 import { BackgroundGradientGrow } from '@/components/layout/background-gradient-grow'
 import { SinglePostHeader } from '@/features/blog/components/single-post-header'
 import { notFound } from 'next/navigation'
+import { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Fernanda Mascheti - Blog',
+  description:
+    'Fernanda Mascheti é uma engenheira de computação e pedagoga. Ensino pensamento computacional para estudantes do Ensino Fundamental e Médio. Ensino sobre pensamento computacional usando HTML, CSS e JavaScript.',
+}
 
 export default async function PostPage({
   params,
