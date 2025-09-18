@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button'
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 import { usePostQuery } from '../hooks/use-post-query'
+import { rgbDataURL } from '@/lib/generate-img-placeholder'
 
 type SinglePostHeaderProps = {
   id: string
@@ -56,6 +57,8 @@ export function SinglePostHeader({ id }: SinglePostHeaderProps) {
           alt={data?.post?.title || ''}
           width={608}
           height={358}
+          placeholder={rgbDataURL(87, 87, 87)}
+          loading="lazy"
           className="w-full h-full object-cover bg-center bg-no-repeat xl:min-w-[608px] xl:max-w-[608px] xl:min-h-[358px] xl:max-h-[358px]"
         />
       </div>

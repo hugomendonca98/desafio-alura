@@ -2,6 +2,7 @@ import React from 'react'
 import Link from 'next/link'
 import { Post } from '../types/post.type'
 import Image from 'next/image'
+import { rgbDataURL } from '@/lib/generate-img-placeholder'
 
 export function BlogPostItem({ post }: { post: Post }) {
   return (
@@ -17,8 +18,9 @@ export function BlogPostItem({ post }: { post: Post }) {
             width={333}
             height={196}
             className="h-32 sm:h-[196px] w-full object-cover bg-center bg-no-repeat rounded"
+            placeholder={rgbDataURL(87, 87, 87)}
+            loading="lazy"
           />
-          {/* <div className="absolute bottom-2 sm:bottom-4 right-2 sm:right-4 bg-primary h-6 sm:h-[30px] w-20 sm:w-[130px] rounded" /> */}
           <div className="absolute bg-primary bottom-0 sm:bottom-0 right-0 sm:right-0 flex items-center justify-center h-6 sm:h-[30px] px-2 min-w-[130px] py-[6px]">
             <span className="font-chakra-petch text-white text-xs sm:text-sm text-nowrap">
               {post.category.name}
