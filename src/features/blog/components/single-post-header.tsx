@@ -1,22 +1,23 @@
 'use client'
 
 import React from 'react'
-import { Post } from '../types/post.type'
 import { Button } from '@/components/ui/button'
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
+import { usePostQuery } from '../hooks/use-post-query'
 
 type SinglePostHeaderProps = {
-  post: Post
+  id: string
 }
 
-export function SinglePostHeader({ post }: SinglePostHeaderProps) {
+export function SinglePostHeader({ id }: SinglePostHeaderProps) {
+  const { data } = usePostQuery({ id })
   const router = useRouter()
   return (
     <div className="relative flex flex-col xl:flex-row gap-6 items-center mt-20 h-full container max-w-[1191px] mx-auto px-6 xl:px-0">
       <div className="flex flex-col justify-between">
         <h1 className="font-chakra-petch font-bold text-secondary dark:text-white text-3xl sm:text-4xl lg:text-[48px] xl:leading-12">
-          {post.title}
+          {data?.post?.title}
         </h1>
         <div className="flex flex-col justify-end">
           <div>
@@ -25,17 +26,17 @@ export function SinglePostHeader({ post }: SinglePostHeaderProps) {
               <Button
                 className="rounded-[4px] font-bold text-white"
                 onClick={() =>
-                  router.push(`/?category=${post.category.slug}#blog`)
+                  router.push(`/?category=${data?.post?.category.slug}#blog`)
                 }
               >
-                {post.category.name}
+                {data?.post?.category.name}
               </Button>
             </div>
           </div>
           <div>
             <h3 className="my-3 xl:my-6 text-tertiary font-bold">Tags:</h3>
             <div className="flex flex-wrap gap-2 items-center">
-              {post.tags.map((tag) => (
+              {data?.post?.tags.map((tag) => (
                 <Button
                   variant="outline"
                   className="rounded-[4px] text-primary font-bold"
@@ -51,8 +52,8 @@ export function SinglePostHeader({ post }: SinglePostHeaderProps) {
       </div>
       <div className="w-full h-full md:max-w-[608px] xl:min-w-[608px] xl:max-w-[608px] xl:min-h-[358px] xl:max-h-[358px]">
         <Image
-          src={post.imageUrl}
-          alt={post.title}
+          src={data?.post?.imageUrl || ''}
+          alt={data?.post?.title || ''}
           width={608}
           height={358}
           className="w-full h-full object-cover bg-center bg-no-repeat xl:min-w-[608px] xl:max-w-[608px] xl:min-h-[358px] xl:max-h-[358px]"
