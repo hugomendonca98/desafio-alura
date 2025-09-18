@@ -20,10 +20,7 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  title: {
-    template: 'Fernanda Mascheti - %s',
-    default: 'Fernanda Mascheti - Blog',
-  },
+  title: 'Fernanda Mascheti - Desafio Alura',
   description:
     'Fernanda Mascheti é uma engenheira de computação e pedagoga. Ensino pensamento computacional para estudantes do Ensino Fundamental e Médio. Ensino sobre pensamento computacional usando HTML, CSS e JavaScript.',
   category: 'programming',
