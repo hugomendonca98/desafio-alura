@@ -1,6 +1,5 @@
 'use client'
 
-import React from 'react'
 import {
   Pagination,
   PaginationContent,
@@ -15,7 +14,6 @@ import { usePostsQuery } from '../hooks/use-posts-query'
 
 export function BlogPostsPagination() {
   const { page, setPage, search, category } = usePostListQueryParams()
-  const { handleScroll } = useAnchorToBlogSection()
 
   const { data } = usePostsQuery({ page, search, category })
 
@@ -23,6 +21,8 @@ export function BlogPostsPagination() {
   const currentPage = data?.pagination?.currentPage ?? 1
 
   const visiblePages = getVisiblePages(totalPages, currentPage)
+
+  useAnchorToBlogSection({ page })
 
   if (totalPages <= 1) {
     return null
@@ -37,10 +37,11 @@ export function BlogPostsPagination() {
               <PaginationEllipsis />
             ) : (
               <PaginationLink
-                href="#"
+                href="#blog"
                 isActive={page === pageNumber}
-                onClick={() => {
-                  handleScroll()
+                onClick={(e) => {
+                  // handleScroll()
+                  e.preventDefault()
                   setPage(Number(pageNumber))
                 }}
               >
