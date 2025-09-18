@@ -6,7 +6,6 @@ import { ReactQueryProvider } from '@/providers/react-query-provider'
 import { NuqsAdapter } from 'nuqs/adapters/next/app'
 import { Header } from '@/components/layout/header'
 import { Footer } from '@/components/layout/footer'
-import ogImage from '@/../public/images/profile.webp'
 
 const chakraPetch = ChakraPetch({
   variable: '--font-chakra-petch',
@@ -20,26 +19,8 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  title: 'Fernanda Mascheti - Desafio Alura',
-  description:
-    'Fernanda Mascheti é uma engenheira de computação e pedagoga. Ensino pensamento computacional para estudantes do Ensino Fundamental e Médio. Ensino sobre pensamento computacional usando HTML, CSS e JavaScript.',
-  openGraph: {
-    type: 'website',
-    locale: 'pt_BR',
-    siteName: 'Fernanda Mascheti',
-    title: 'Fernanda Mascheti - Blog',
-    description:
-      'Fernanda Mascheti é uma engenheira de computação e pedagoga. Ensino pensamento computacional para estudantes do Ensino Fundamental e Médio. Ensino sobre pensamento computacional usando HTML, CSS e JavaScript.',
-    url: 'https://desafio-alura-umber.vercel.app/',
-    images: [
-      {
-        url: ogImage.src,
-        width: ogImage.width,
-        height: ogImage.height,
-        alt: 'Fernanda Mascheti - Blog',
-      },
-    ],
-  },
+  title: 'Fernanda Mascheti',
+  description: 'Fernanda Mascheti é uma engenheira de computação e pedagoga.',
 }
 
 export default function RootLayout({

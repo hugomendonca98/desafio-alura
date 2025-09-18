@@ -12,9 +12,8 @@ import { BackgroundGradientGrow } from '@/components/layout/background-gradient-
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Fernanda Mascheti - Desafio Alura',
-  description:
-    'Fernanda Mascheti é uma engenheira de computação e pedagoga. Ensino pensamento computacional para estudantes do Ensino Fundamental e Médio. Ensino sobre pensamento computacional usando HTML, CSS e JavaScript.',
+  title: 'Fernanda Mascheti',
+  description: 'Fernanda Mascheti é uma engenheira de computação e pedagoga.',
 }
 
 type SearchParams = Promise<{ [key: string]: string | string[] | undefined }>
