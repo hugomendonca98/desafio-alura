@@ -2,12 +2,13 @@
 
 import { api } from '@/services/api'
 import { FetchPostsResponse } from '../types/post.type'
+import { searchPostsAction } from '@/actions/search-posts-action'
 
 type FetchPostsParams = {
   page: number
   perPage?: number
-  search?: string
   category?: string
+  search?: string
 }
 
 export async function fetchPosts({
@@ -16,14 +17,21 @@ export async function fetchPosts({
   search = '',
   category = '',
 }: FetchPostsParams): Promise<FetchPostsResponse> {
+  if (search) {
+    const data = await searchPostsAction({ search, page, perPage, category })
+    return data
+  }
+
   const definyEndpoint = () => {
-    if (search) {
-      return `/posts/tags/${search}?page=${page}&limit=${perPage}`
-    }
+    const queryParams = new URLSearchParams()
+    queryParams.append('page', page.toString())
+    queryParams.append('limit', perPage.toString())
+
     if (category) {
-      return `/posts/category/${category}?page=${page}&limit=${perPage}`
+      return `/posts/category/${category}?${queryParams.toString()}`
     }
-    return `/posts?page=${page}&limit=${perPage}`
+
+    return `/posts?${queryParams.toString()}`
   }
 
   const postsResponse = await api(definyEndpoint())

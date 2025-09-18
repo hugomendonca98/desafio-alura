@@ -39,7 +39,7 @@ const categories = [
 ]
 
 export function BlogCategoryList() {
-  const { setCategory, category, setPage, setSearch } = usePostListQueryParams()
+  const { setCategory, category, setPage } = usePostListQueryParams()
   const {
     scrollPrev,
     scrollNext,
@@ -52,7 +52,6 @@ export function BlogCategoryList() {
     category,
     setCategory,
     setPage,
-    setSearch,
   })
 
   return (

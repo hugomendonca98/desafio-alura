@@ -45,7 +45,7 @@ export function BlogPostsGrid() {
 
   return (
     <main
-      className="flex flex-wrap gap-6 justify-center mx-auto container"
+      className="flex flex-wrap gap-6 justify-center xl:justify-start mx-auto container"
       aria-label="Lista de postagens"
     >
       {data?.posts.map((post) => (

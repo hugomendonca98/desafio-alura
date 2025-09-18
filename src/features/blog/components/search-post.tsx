@@ -4,15 +4,14 @@ import React from 'react'
 import { Input } from '@/components/ui/input'
 import { SearchIcon } from 'lucide-react'
 import { usePostListQueryParams } from '../hooks/use-post-list-query-params'
-import { useSearchByTags } from '../hooks/use-search-by-tags'
+import { useSearch } from '../hooks/use-search'
 
 export function SearchPost() {
-  const { search, setSearch, setPage, setCategory } = usePostListQueryParams()
-  const { inputValue, handleInputChange } = useSearchByTags({
+  const { search, setSearch, setPage } = usePostListQueryParams()
+  const { inputValue, handleInputChange } = useSearch({
     search,
     setSearch,
     setPage,
-    setCategory,
   })
 
   return (

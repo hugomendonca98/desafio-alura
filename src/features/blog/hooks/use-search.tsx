@@ -3,24 +3,17 @@
 import { useEffect, useState } from 'react'
 import { useDebouncedCallback } from 'use-debounce'
 
-interface UseSearchByTagsProps {
+interface UseSearchProps {
   search: string
   setSearch: (search: string) => void
   setPage: (page: number) => void
-  setCategory: (category: string) => void
 }
 
-export function useSearchByTags({
-  search,
-  setSearch,
-  setPage,
-  setCategory,
-}: UseSearchByTagsProps) {
+export function useSearch({ search, setSearch, setPage }: UseSearchProps) {
   const [inputValue, setInputValue] = useState(search)
 
   const handleSearchDebounced = useDebouncedCallback((value: string) => {
     setPage(1)
-    setCategory('')
     setSearch(value)
   }, 500)
 

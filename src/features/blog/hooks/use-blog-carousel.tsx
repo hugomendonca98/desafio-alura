@@ -7,14 +7,12 @@ interface UseBlogCarrouselProps {
   category: string
   setCategory: (category: string) => void
   setPage: (page: number) => void
-  setSearch: (search: string) => void
 }
 
 export function useBlogCarousel({
   category,
   setCategory,
   setPage,
-  setSearch,
 }: UseBlogCarrouselProps) {
   const [emblaRef, emblaApi] = useEmblaCarousel({
     align: 'start',
@@ -49,14 +47,13 @@ export function useBlogCarousel({
   const handleCategoryClick = useCallback(
     (slug: string) => {
       setPage(1)
-      setSearch('')
       if (isSelected(slug)) {
         setCategory('')
       } else {
         setCategory(slug)
       }
     },
-    [isSelected, setCategory, setPage, setSearch],
+    [isSelected, setCategory, setPage],
   )
 
   useEffect(() => {
