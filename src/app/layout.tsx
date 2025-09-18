@@ -23,21 +23,6 @@ export const metadata: Metadata = {
   title: 'Fernanda Mascheti - Desafio Alura',
   description:
     'Fernanda Mascheti é uma engenheira de computação e pedagoga. Ensino pensamento computacional para estudantes do Ensino Fundamental e Médio. Ensino sobre pensamento computacional usando HTML, CSS e JavaScript.',
-  category: 'programming',
-  creator: 'Hugo Mendonça',
-  alternates: {
-    canonical: 'https://desafio-alura-umber.vercel.app/',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    site: '@fernandamascheti',
-    creator: '@fernandamascheti',
-    title: 'Fernanda Mascheti - Blog',
-    description:
-      'Fernanda Mascheti é uma engenheira de computação e pedagoga. Ensino pensamento computacional para estudantes do Ensino Fundamental e Médio. Ensino sobre pensamento computacional usando HTML, CSS e JavaScript.',
-    images: [ogImage.src],
-  },
-  metadataBase: new URL('https://desafio-alura-umber.vercel.app/'),
   openGraph: {
     type: 'website',
     locale: 'pt_BR',
@@ -55,15 +40,6 @@ export const metadata: Metadata = {
       },
     ],
   },
-  keywords: [
-    'Fernanda Mascheti',
-    'Engenheira de Computação',
-    'Pedagoga',
-    'Pensamento Computacional',
-    'HTML',
-    'CSS',
-    'JavaScript',
-  ],
 }
 
 export default function RootLayout({
