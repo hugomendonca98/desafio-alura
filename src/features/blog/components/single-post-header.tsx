@@ -23,7 +23,7 @@ export function SinglePostHeader({ post }: SinglePostHeaderProps) {
             <h3 className="my-3 xl:my-6 text-tertiary font-bold">Categoria:</h3>
             <div className="flex gap-2 items-center">
               <Button
-                className="rounded-[4px] font-bold"
+                className="rounded-[4px] font-bold text-white"
                 onClick={() =>
                   router.push(`/?category=${post.category.slug}#blog`)
                 }

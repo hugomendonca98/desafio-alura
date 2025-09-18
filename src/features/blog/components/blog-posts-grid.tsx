@@ -3,17 +3,12 @@
 import React from 'react'
 import { BlogPostItem } from './blog-post-item'
 import { BlogPostSkeleton } from './blog-post-skeleton'
-import { useQuery } from '@tanstack/react-query'
-import { fetchPosts } from '../services/fetch-posts'
-import { usePostListQueryParams } from '../hooks/usePostListQueryParams'
+import { usePostListQueryParams } from '../hooks/use-post-list-query-params'
+import { usePostsQuery } from '../hooks/use-posts-query'
 
 export function BlogPostsGrid() {
   const { page, search, category } = usePostListQueryParams()
-
-  const { data, isLoading } = useQuery({
-    queryKey: ['posts', page, search, category],
-    queryFn: () => fetchPosts({ page, search, category }),
-  })
+  const { data, isLoading } = usePostsQuery({ page, search, category })
 
   if (isLoading) {
     return (
@@ -29,7 +24,7 @@ export function BlogPostsGrid() {
     )
   }
 
-  if (data?.posts.length === 0 || !data?.posts) {
+  if (data?.posts?.length === 0 || !data?.posts) {
     return (
       <main
         className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 place-items-center"

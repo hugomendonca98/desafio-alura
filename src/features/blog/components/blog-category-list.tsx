@@ -1,11 +1,11 @@
 'use client'
 
-import React, { useCallback, useEffect, useState } from 'react'
-import { usePostListQueryParams } from '../hooks/usePostListQueryParams'
-import useEmblaCarousel from 'embla-carousel-react'
+import React from 'react'
+import { usePostListQueryParams } from '../hooks/use-post-list-query-params'
 import { ChevronLeft, ChevronRight, XIcon } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
+import { useBlogCarousel } from '../hooks/use-blog-carousel'
 
 const categories = [
   {
@@ -40,54 +40,20 @@ const categories = [
 
 export function BlogCategoryList() {
   const { setCategory, category, setPage, setSearch } = usePostListQueryParams()
-  const [emblaRef, emblaApi] = useEmblaCarousel({
-    align: 'start',
-    containScroll: 'trimSnaps',
-    dragFree: true,
+  const {
+    scrollPrev,
+    scrollNext,
+    canScrollPrev,
+    canScrollNext,
+    handleCategoryClick,
+    emblaRef,
+    isSelected,
+  } = useBlogCarousel({
+    category,
+    setCategory,
+    setPage,
+    setSearch,
   })
-  const [canScrollPrev, setCanScrollPrev] = useState(false)
-  const [canScrollNext, setCanScrollNext] = useState(false)
-
-  const scrollPrev = useCallback(() => {
-    if (emblaApi) emblaApi.scrollPrev()
-  }, [emblaApi])
-
-  const scrollNext = useCallback(() => {
-    if (emblaApi) emblaApi.scrollNext()
-  }, [emblaApi])
-
-  const onSelect = useCallback(() => {
-    if (!emblaApi) return
-    setCanScrollPrev(emblaApi.canScrollPrev())
-    setCanScrollNext(emblaApi.canScrollNext())
-  }, [emblaApi])
-
-  const isSelected = useCallback(
-    (slug: string) => {
-      return slug === category
-    },
-    [category],
-  )
-
-  const handleCategoryClick = useCallback(
-    (slug: string) => {
-      setPage(1)
-      setSearch('')
-      if (isSelected(slug)) {
-        setCategory('')
-      } else {
-        setCategory(slug)
-      }
-    },
-    [isSelected, setCategory, setPage, setSearch],
-  )
-
-  useEffect(() => {
-    if (!emblaApi) return
-    onSelect()
-    emblaApi.on('select', onSelect)
-    emblaApi.on('reInit', onSelect)
-  }, [emblaApi, onSelect])
 
   return (
     <div className="flex flex-col sm:flex-row gap-2 sm:gap-4 items-start sm:items-center">
@@ -106,7 +72,7 @@ export function BlogCategoryList() {
         {canScrollPrev && (
           <button
             onClick={scrollPrev}
-            className="absolute hidden md:block left-0 z-30 p-1 rounded-full bg-white dark:bg-gray-800 shadow-md border border-gray-200 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 transition-all"
+            className="absolute hidden md:block left-0 z-30 p-1 rounded-full bg-white dark:bg-gray-800 shadow-md border border-gray-200 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 transition-all cursor-pointer"
           >
             <ChevronLeft className="w-5 h-5" />
           </button>
@@ -141,7 +107,7 @@ export function BlogCategoryList() {
         {canScrollNext && (
           <button
             onClick={scrollNext}
-            className="absolute hidden md:block right-0 z-30 p-1 rounded-full bg-white dark:bg-gray-800 shadow-md border border-gray-200 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 transition-all"
+            className="absolute hidden md:block right-0 z-30 p-1 rounded-full bg-white dark:bg-gray-800 shadow-md border border-gray-200 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 transition-all cursor-pointer"
           >
             <ChevronRight className="w-5 h-5" />
           </button>

@@ -10,7 +10,7 @@ import { notFound } from 'next/navigation'
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Blog',
+  title: 'Fernanda Mascheti - Blog',
   description: 'Fernanda Mascheti é uma engenheira de computação e pedagoga.',
 }
 
@@ -30,7 +30,7 @@ export default async function PostPage({
     page: 1,
     perPage: 3,
     category: '',
-    search: post.tags[0].slug,
+    search: post?.tags[0]?.slug,
   })
 
   return (
@@ -56,11 +56,14 @@ export default async function PostPage({
       <div className="absolute bottom-0 left-0 right-0 w-full h-[600px] pointer-events-none hidden md:block">
         <Image
           alt="Background Gradient Grow"
-          className="w-full h-full object-cover opacity-100 dark:opacity-50"
+          className="w-full h-full object-cover opacity-100 dark:opacity-50 select-none"
           src={imgGradient}
           width={1920}
           height={1173}
           property="true"
+          fetchPriority="high"
+          loading="lazy"
+          quality={50}
         />
       </div>
     </>

@@ -20,7 +20,7 @@ export function BackgroundGradientGrow({
       <div className="absolute -top-10 md:-top-20 left-0 w-full h-full">
         <Image
           alt="Background Gradient Grow"
-          className="w-full h-full md:h-auto object-cover opacity-100 dark:opacity-50"
+          className="w-full h-full md:h-auto object-cover opacity-100 dark:opacity-50 select-none"
           src={imgGradient}
           width={1355}
           height={1173}

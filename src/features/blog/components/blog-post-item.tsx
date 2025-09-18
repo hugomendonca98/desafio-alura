@@ -7,7 +7,7 @@ export function BlogPostItem({ post }: { post: Post }) {
   return (
     <Link href={`/post/${post.id}`} aria-label={`Ver postagem ${post.title}`}>
       <article
-        className="border border-border rounded p-4 sm:p-6 flex flex-col gap-4 sm:gap-6 hover:shadow-[0px_4px_44px_0px_rgba(28,167,200,0.3)] transition-shadow w-[300px] sm:w-[381px] md:h-[458px] bg-background relative z-20"
+        className="border border-primary rounded p-4 sm:p-6 flex flex-col gap-4 sm:gap-6 hover:shadow-[0px_4px_44px_0px_rgba(28,167,200,0.3)] transition-shadow w-[300px] sm:w-[381px] md:h-[458px] bg-background relative z-20"
         aria-labelledby={`post-title-${post.id}`}
       >
         <div className="relative">

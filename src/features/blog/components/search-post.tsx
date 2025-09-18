@@ -1,30 +1,19 @@
 'use client'
 
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import { Input } from '@/components/ui/input'
 import { SearchIcon } from 'lucide-react'
-import { usePostListQueryParams } from '../hooks/usePostListQueryParams'
-import { useDebouncedCallback } from 'use-debounce'
+import { usePostListQueryParams } from '../hooks/use-post-list-query-params'
+import { useSearchByTags } from '../hooks/use-search-by-tags'
 
 export function SearchPost() {
   const { search, setSearch, setPage, setCategory } = usePostListQueryParams()
-  const [inputValue, setInputValue] = useState(search)
-
-  const handleSearchDebounced = useDebouncedCallback((value: string) => {
-    setPage(1)
-    setCategory('')
-    setSearch(value)
-  }, 500)
-
-  useEffect(() => {
-    setInputValue(search)
-  }, [search])
-
-  const handleInputChange = (value: string) => {
-    setInputValue(value)
-
-    handleSearchDebounced(value)
-  }
+  const { inputValue, handleInputChange } = useSearchByTags({
+    search,
+    setSearch,
+    setPage,
+    setCategory,
+  })
 
   return (
     <div className="relative w-full flex flex-wrap lg:flex-nowrap gap-4 items-center justify-start md:justify-center xl:justify-start">

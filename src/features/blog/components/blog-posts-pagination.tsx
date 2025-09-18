@@ -9,20 +9,18 @@ import {
   PaginationLink,
   getVisiblePages,
 } from '@/components/ui/pagination'
-import { useQuery } from '@tanstack/react-query'
-import { fetchPosts } from '../services/fetch-posts'
-import { usePostListQueryParams } from '../hooks/usePostListQueryParams'
+import { usePostListQueryParams } from '../hooks/use-post-list-query-params'
+import { useAnchorToBlogSection } from '../hooks/use-anchor-to-blog-section'
+import { usePostsQuery } from '../hooks/use-posts-query'
 
 export function BlogPostsPagination() {
   const { page, setPage, search, category } = usePostListQueryParams()
+  const { handleScroll } = useAnchorToBlogSection()
 
-  const { data } = useQuery({
-    queryKey: ['posts', page, search, category],
-    queryFn: () => fetchPosts({ page, search, category }),
-  })
+  const { data } = usePostsQuery({ page, search, category })
 
-  const totalPages = data?.pagination.totalPages ?? 0
-  const currentPage = data?.pagination.currentPage ?? 1
+  const totalPages = data?.pagination?.totalPages ?? 0
+  const currentPage = data?.pagination?.currentPage ?? 1
 
   const visiblePages = getVisiblePages(totalPages, currentPage)
 
@@ -42,12 +40,8 @@ export function BlogPostsPagination() {
                 href="#"
                 isActive={page === pageNumber}
                 onClick={() => {
+                  handleScroll()
                   setPage(Number(pageNumber))
-
-                  const blogSection = document.getElementById('blog')
-                  if (blogSection) {
-                    blogSection.scrollIntoView({ behavior: 'smooth' })
-                  }
                 }}
               >
                 {pageNumber}
