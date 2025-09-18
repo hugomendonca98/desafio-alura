@@ -70,6 +70,7 @@ export function BlogCategoryList() {
 
         {canScrollPrev && (
           <button
+            name="scroll-prev"
             onClick={scrollPrev}
             className="absolute hidden md:block left-0 z-30 p-1 rounded-full bg-white dark:bg-gray-800 shadow-md border border-gray-200 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 transition-all cursor-pointer"
           >
@@ -105,6 +106,7 @@ export function BlogCategoryList() {
 
         {canScrollNext && (
           <button
+            name="scroll-next"
             onClick={scrollNext}
             className="absolute hidden md:block right-0 z-30 p-1 rounded-full bg-white dark:bg-gray-800 shadow-md border border-gray-200 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 transition-all cursor-pointer"
           >

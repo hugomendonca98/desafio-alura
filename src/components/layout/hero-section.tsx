@@ -32,7 +32,7 @@ export function HeroSection() {
               Programação
             </span>
           </h1>
-          <p className="font-inter text-muted-foreground text-sm sm:text-base max-w-[581px] leading-6 px-4">
+          <p className="font-inter text-tertiary dark:text-gray-400 text-sm sm:text-base max-w-[581px] leading-6 px-4">
             Sou Engenheira de Computação e Pedagoga. Ensino pensamento
             computacional para estudantes do Ensino Fundamental e Médio. Ensino
             sobre pensamento computacional usando HTML, CSS e JavaScript. Veja
