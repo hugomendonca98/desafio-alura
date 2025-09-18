@@ -30,7 +30,7 @@ export function BlogPostsPagination() {
 
   return (
     <Pagination className="mt-8 text-white">
-      <PaginationContent>
+      <PaginationContent className="gap-4 flex-wrap justify-center px-4">
         {visiblePages.map((pageNumber, index) => (
           <PaginationItem key={index}>
             {pageNumber === 'ellipsis' ? (

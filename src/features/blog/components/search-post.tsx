@@ -26,7 +26,7 @@ export function SearchPost() {
 
       <Input
         id="search-input"
-        className="border border-primary min-w-[300px] w-full md:w-auto bg-background"
+        className="border border-primary min-w-[80vw] md:min-w-[300px] w-full md:w-auto bg-background"
         placeholder="Buscar..."
         icon={<SearchIcon />}
         value={inputValue}

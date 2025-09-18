@@ -82,7 +82,7 @@ export function BlogCategoryList() {
           className={`overflow-hidden ${canScrollPrev || canScrollNext ? 'md:mx-8' : 'mx-0'}`}
           ref={emblaRef}
         >
-          <div className="flex gap-2 py-2">
+          <div className="flex gap-4 py-2">
             {categories.map((category) => (
               <div key={category.slug} className="flex-none">
                 <Button

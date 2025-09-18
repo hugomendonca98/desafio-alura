@@ -34,7 +34,7 @@ export function SinglePostHeader({ post }: SinglePostHeaderProps) {
           </div>
           <div>
             <h3 className="my-3 xl:my-6 text-tertiary font-bold">Tags:</h3>
-            <div className="flex gap-2 items-center">
+            <div className="flex flex-wrap gap-2 items-center">
               {post.tags.map((tag) => (
                 <Button
                   variant="outline"
